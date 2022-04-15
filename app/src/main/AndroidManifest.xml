@@ -16,19 +16,19 @@
         android:theme="@style/Theme.Camera360"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activitys.CreateAcoountActivity"
+            android:name=".Activites.CreateAccountActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".Activitys.LoginActivity"
+            android:name=".Activites.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".Activitys.IntroScreenActivity"
+            android:name=".Activites.IntroScreenActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".Activitys.MainActivity"
+            android:name=".Activites.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.WelcomeActivity"
+            android:name=".Activites.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <meta-data

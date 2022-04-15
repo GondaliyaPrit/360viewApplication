@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 
-import com.cameraview.app.Activitys.IntroScreenActivity;
+import com.cameraview.app.Activites.IntroScreenActivity;
 import com.cameraview.app.R;
 import com.cameraview.app.Utils.Intropage;
 

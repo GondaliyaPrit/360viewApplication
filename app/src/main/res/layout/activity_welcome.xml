@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:padding="@dimen/_20sdp"
-    tools:context=".Activitys.WelcomeActivity">
+    tools:context=".Activites.WelcomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

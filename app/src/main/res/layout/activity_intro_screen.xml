@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/white"
     android:background="@color/white"
-    tools:context=".Activitys.IntroScreenActivity">
+    tools:context=".Activites.IntroScreenActivity">
 
 
     <androidx.viewpager.widget.ViewPager
