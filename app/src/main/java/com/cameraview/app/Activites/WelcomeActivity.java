@@ -9,16 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cameraview.app.databinding.ActivityWelcomeBinding;
 
 public class WelcomeActivity extends AppCompatActivity {
-    ActivityWelcomeBinding welcomeBinding;
+    ActivityWelcomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        welcomeBinding = ActivityWelcomeBinding.inflate(getLayoutInflater());
+        binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         initvariable();
         setdata();
         initclicklistner();
-        setContentView(welcomeBinding.getRoot());
+        setContentView(binding.getRoot());
     }
 
 
@@ -29,13 +29,21 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void initclicklistner() {
-        welcomeBinding.signinbtn.setOnClickListener(new View.OnClickListener() {
+        binding.signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
-                finish();
             }
         });
+
+        binding.createacbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, CreateAccountActivity.class));
+            }
+        });
+
+
     }
 
 

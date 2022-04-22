@@ -11,17 +11,17 @@ import com.cameraview.app.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding activityMainBinding;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(activityMainBinding.getRoot());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this, IntroScreenActivity.class));
+                startActivity(new Intent(MainActivity.this, ApiCallActivity.class));
                 finish();
             }
         }, 3000);

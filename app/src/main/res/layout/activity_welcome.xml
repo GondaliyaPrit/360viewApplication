@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/loginbg"
     android:padding="@dimen/_20sdp"
     tools:context=".Activites.WelcomeActivity">
 
@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Welcome"
             android:textColor="@color/white"
+            android:fontFamily="@font/helvetica"
             android:textSize="@dimen/_25sdp"
             android:textStyle="bold" />
 
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/view1"
             android:text="Manage Your expenses"
+            android:fontFamily="@font/helvetica"
             android:textColor="@color/white"
             android:textSize="@dimen/_16sdp" />
 
@@ -41,9 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/Managetxt"
+            android:fontFamily="@font/helveticabold"
             android:text="Seamlessly &amp; intuitively"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />
 
         <View
@@ -63,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:padding="@dimen/_8sdp"
+                android:padding="@dimen/_12sdp"
                 android:src="@drawable/google" />
 
             <TextView
@@ -80,7 +83,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/createacbtntxtview"
+            android:id="@+id/createacbtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/googlebtnlayout"
@@ -96,7 +99,7 @@
             android:id="@+id/view3"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_10sdp"
-            android:layout_below="@id/createacbtntxtview" />
+            android:layout_below="@id/createacbtn" />
 
         <LinearLayout
             android:id="@+id/signinLayout"
