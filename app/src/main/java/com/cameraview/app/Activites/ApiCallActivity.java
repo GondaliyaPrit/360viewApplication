@@ -11,19 +11,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -42,6 +41,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -67,6 +67,8 @@ public class ApiCallActivity extends AppCompatActivity {
     List<String> imagebase64list;
     List<Integer> foregrounflist;
     WebSettings webSettings;
+    //    String array = "" ;
+    List<String> array;
     int i = 0;
 
 
@@ -79,6 +81,10 @@ public class ApiCallActivity extends AppCompatActivity {
         dialog = new AlertDialog.Builder(this);
 
         webSettings = binding.webview.getSettings();
+        array = new ArrayList<>();
+        array.add("Sanket");
+        array.add("butani");
+        array.add("prit");
 
         binding.getfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,11 +93,11 @@ public class ApiCallActivity extends AppCompatActivity {
                 removebgofimage = new ArrayList<>();
                 imagebase64list = new ArrayList<>();
                 foregrounflist = new ArrayList<>();
+
                 dialog.setTitle("Select Your Photo");
                 dialog.setItems(cat, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         if (which == 0) {
                             Gallary();
                         } else if (which == 1) {
@@ -107,25 +113,34 @@ public class ApiCallActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Dialog.showdialog(ApiCallActivity.this, "Please wait");
-                callbgremoveapi(0,removebgofimage);
+                callbgremoveapi(0, removebgofimage);
 
             }
         });
 
         binding.printarray.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                Log.e("basearray",""+foregrounflist);
-                Log.e("basearraySize",""+foregrounflist.size());
+                StringJoiner sj = new StringJoiner(",");
+                for(String st : array){
+                    sj.add(st);
+                }
+                Log.e("basearray", "" + sj.toString());
             }
         });
 
         binding.callapi.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 Log.e("filearray", "" + listofimage);
                 Dialog.showdialog(ApiCallActivity.this, "Please wait");
-                Call<ResponseBody> call = ApiClient.LOCALAPI.uploadimage(listofimage);
+                StringJoiner sj = new StringJoiner(",");
+                for(String st : imagebase64list){
+                    sj.add(st);
+                }
+                Call<ResponseBody> call = ApiClient.LOCALAPI.uploadimage(sj.toString());
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -163,20 +178,20 @@ public class ApiCallActivity extends AppCompatActivity {
 
     }
 
-    private void callbgremoveapi(int index,List<MultipartBody.Part> removebgofimage){
-        if(index == removebgofimage.size()){
+    private void callbgremoveapi(int index, List<MultipartBody.Part> removebgofimage) {
+        if (index == removebgofimage.size()) {
             Dialog.dissmissdialog();
             return;
         }
         RequestBody format = RequestBody.create(MediaType.parse("text/plain"), "jpg");
-        Log.e("image",""+removebgofimage.get(index));
-        Call<ResponseBody> call = ApiClient.API.getimage(removebgofimage.get(index),format);
+        Log.e("image", "" + removebgofimage.get(index));
+        Call<ResponseBody> call = ApiClient.API.getimage(removebgofimage.get(index), format);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                int curindex =index;
+                int curindex = index;
                 try {
-                    if(response.code() == 200){
+                    if (response.code() == 200) {
                         String json = response.body().string();
                         Log.e("Response", "" + json);
                         Log.e("Code", "" + response.code());
@@ -185,12 +200,12 @@ public class ApiCallActivity extends AppCompatActivity {
                         String result64 = data.getString("result_b64");
                         Integer foreground_top = data.getInt("foreground_top");
                         imagebase64list.add(result64);
-                       // foregrounflist.add(foreground_top);
-                        if(response.code() == 200){
-                            callbgremoveapi(index+1,removebgofimage);
+                        // foregrounflist.add(foreground_top);
+                        if (response.code() == 200) {
+                            callbgremoveapi(index + 1, removebgofimage);
                         }
-                    }else {
-                        callbgremoveapi(curindex,removebgofimage);
+                    } else {
+                        callbgremoveapi(curindex, removebgofimage);
 //                        Dialog.dissmissdialog();
 //                        Log.e("reponsecode",""+response.code());
 //                        Toast.makeText(ApiCallActivity.this, "Not get"+index, Toast.LENGTH_SHORT).show();
@@ -227,9 +242,9 @@ public class ApiCallActivity extends AppCompatActivity {
             if (requestCode == 0) {
 //                FromGallery(data);
                 ClipData cd = data.getClipData();
-                if(cd == null){
+                if (cd == null) {
                     FromGallery(data.getData());
-                }else {
+                } else {
                     int count = data.getClipData().getItemCount();
                     for (int i = 0; i < count; i++) {
                         FromGallery(data.getClipData().getItemAt(i).getUri());
@@ -314,7 +329,7 @@ public class ApiCallActivity extends AppCompatActivity {
         return null;
     }
 
-    private static String getDataColumn(Context context, Uri uri, String selection,String[] selectionArgs) {
+    private static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
         Cursor cursor = null;
         final String column = "_data";
         final String[] projection = {

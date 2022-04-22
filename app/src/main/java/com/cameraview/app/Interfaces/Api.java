@@ -26,7 +26,7 @@ public interface Api {
     @Multipart
     @Headers({
             "Accept: application/json",
-            "X-Api-Key: U2tiLaRQigiEyViah7zWjcDH",
+            "X-Api-Key: G5jQkXKqSXDBqPW5pgnRiCha",
             "X-RateLimit-Limit: 500",
             "X-RateLimit-Remaining: 10",
             "Retry-After: 5"
@@ -44,12 +44,9 @@ public interface Api {
 //    Call<ResponseBody> getimage(
 //            @Field("image_url") String url);
 
-    @Multipart
-    @POST("createView360")
-    Call<ResponseBody> uploadimage(@Part List<MultipartBody.Part> profile_image);
-
-
     @FormUrlEncoded
-    @POST("login")
-    Call<ResponseBody> logindemo(@Field("email") String email, @Field("password") String password);
+    @POST("createView360")
+    Call<ResponseBody> uploadimage(@Field("media") String media);
+
+
 }

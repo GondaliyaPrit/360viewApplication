@@ -17,33 +17,28 @@
             android:layout_height="wrap_content"
             android:text="Take File" />
 
-
-        <Button
-            android:id="@+id/callapi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="call api" />
-
         <Button
             android:id="@+id/removebg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="removebg" />
+
+        <Button
+            android:id="@+id/callapi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="create View" />
+
         <Button
             android:id="@+id/printarray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="printarray" />
 
-        <ImageView
-            android:id="@+id/myimage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp" />
-
         <WebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp" />
+            android:layout_height="@dimen/_500sdp" />
     </LinearLayout>
 
 
