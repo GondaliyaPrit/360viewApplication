@@ -123,7 +123,7 @@ public class ApiCallActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 StringJoiner sj = new StringJoiner(",");
-                for(String st : array){
+                for (String st : array) {
                     sj.add(st);
                 }
                 Log.e("basearray", "" + sj.toString());
@@ -137,7 +137,7 @@ public class ApiCallActivity extends AppCompatActivity {
                 Log.e("filearray", "" + listofimage);
                 Dialog.showdialog(ApiCallActivity.this, "Please wait");
                 StringJoiner sj = new StringJoiner(",");
-                for(String st : imagebase64list){
+                for (String st : imagebase64list) {
                     sj.add(st);
                 }
                 Call<ResponseBody> call = ApiClient.LOCALAPI.uploadimage(sj.toString());
@@ -181,6 +181,7 @@ public class ApiCallActivity extends AppCompatActivity {
     private void callbgremoveapi(int index, List<MultipartBody.Part> removebgofimage) {
         if (index == removebgofimage.size()) {
             Dialog.dissmissdialog();
+            Toast.makeText(this, "Remove bg Sucessfully...", Toast.LENGTH_SHORT).show();
             return;
         }
         RequestBody format = RequestBody.create(MediaType.parse("text/plain"), "jpg");
@@ -392,7 +393,6 @@ public class ApiCallActivity extends AppCompatActivity {
                 final String[] selectionArgs = new String[]{
                         split[1]
                 };
-
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
         } else if ("content".equalsIgnoreCase(uri.getScheme())) {
