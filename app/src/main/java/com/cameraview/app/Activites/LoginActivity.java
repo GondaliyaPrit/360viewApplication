@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setdata() {
+
     }
 
     private void initclicklistner() {
@@ -44,50 +45,37 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, ApiCallActivity.class));
             }
         });
-
-
     }
 }
 
 
 /***
- *
- *
- Date : 21-4-2022
+
+ Date : 25-4-2022
 
  I have worked on Number of project (1) and below are my updates-
 
  Project name : KeepShake Digital
 
- 1) Remove bg api calling
- 2) call api in loop
- 3) but it's shown error in API because of rate limit exceeded
- 4) create recusrsion function for call but when upload more than 5 image than show error
- 5) creadit over in one application so create new account same like create 2 more account
+ 1) R&D on how to create 360 view using video
+ 2) R&D on play store any application available that provide 360view
+ 3) Create flipkart 360 view video and upload in drive
 
  Thank you...
 
 
+ Date : 25-4-2022
 
+ I have worked on Number of project (1) and below are my updates-
 
+ Project name : UberRider
 
+ 1) create api interface class
+ 2) Create apiclient interface class
+ 3) Create function for base url
+ 4) create function for http calling
+ 5) create api function for login and register
 
+ Thank you...
 
- Date : 20-4-2022
-
- I have worked on Number of project (2) and below are my updates-
-
- Project name : Luxury-x chnage
-
- 2) compare with site and creaqte list of diffrent
- 1) change drwaer list
- 2) change category list
- 3) chaange drawer design (working...)
-
-
- Project Name : KeepShake Digital
-
- 1) help to sanket for store image into list and call api
-
- Thank you...*
  * ***/
