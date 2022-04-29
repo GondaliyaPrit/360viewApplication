@@ -114,7 +114,6 @@ public class ApiCallActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Dialog.showdialog(ApiCallActivity.this, "Please wait");
                 callbgremoveapi(0, removebgofimage);
-
             }
         });
 
@@ -230,7 +229,6 @@ public class ApiCallActivity extends AppCompatActivity {
         i.setAction(Intent.ACTION_GET_CONTENT);
         i.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         startActivityForResult(Intent.createChooser(i, "Select Picture"), 0);
-
     }
 
 
