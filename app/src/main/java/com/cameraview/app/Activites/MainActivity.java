@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this, ApiCallActivity.class));
+                startActivity(new Intent(MainActivity.this, TakeImageActivity.class));
                 finish();
             }
         }, 3000);
     }
-}
+}   
