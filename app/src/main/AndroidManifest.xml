@@ -24,6 +24,7 @@
             android:name=".Activites.ConvertingActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:name=".Activites.TakeImageActivity"
             android:exported="false" />
         <activity

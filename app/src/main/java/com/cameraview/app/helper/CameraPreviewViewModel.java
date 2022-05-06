@@ -7,6 +7,8 @@ import static com.cameraview.app.helper.Constant.FULL_SCREEN;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -16,7 +18,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.cameraview.app.Activites.ApiCallActivity;
 import com.cameraview.app.Activites.ConvertingActivity;
+import com.cameraview.app.R;
 import com.cameraview.app.databinding.ActivityTakeImageBinding;
 
 import java.io.File;
@@ -32,6 +36,7 @@ public class CameraPreviewViewModel {
     private Context context;
     private ActivityTakeImageBinding binding;
     int count;
+    Camera.PictureCallback callback;
 
     public CameraPreviewViewModel(Context context, ActivityTakeImageBinding activityFullScreenPreviewBinding) {
         this.context = context;
@@ -85,51 +90,53 @@ public class CameraPreviewViewModel {
     }
 
     public void captureImage() {
+        callback = new Camera.PictureCallback() {
+            @Override
+            public void onPictureTaken(byte[] data, Camera camera) {
+                count++;
+                saveImage(data,count);
+            }
+        };
         binding.ivCapture.setOnClickListener((View view) -> {
-            count = 0;
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask()
-            {
-                @Override
-                public void run()
-                {
-                    try {
-                        mCamera.takePicture(() -> {
-                        }, null, (final byte[] bytes, Camera camera) -> {
-                            try {
-                                count += 1;
-//                                mCamera.stopPreview();
-                                saveImage(bytes,count);
-                            } catch (Exception e) {
-                                Log.e(TAG, "takePicture", e);
-                            }
-                        });
-                    } catch (Exception e) {
-                        Log.e(TAG, "capturePhoto", e);
-                    }
-                }
-            }, 0, 5000);
+            mCamera.takePicture(null,null,callback);
+        });
 
+        binding.rldone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (count < 10){
+                    Toast.makeText(context, "Minimum 10 frame required", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        binding.rlclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, ApiCallActivity.class));
+                mCamera.stopPreview();
+                ((Activity)context).finish();
+            }
         });
     }
 
     private void saveImage(final byte[] data,int count) {
-        Log.e("Photo","Photo take");
-        if(count == 10){
-            context.startActivity(new Intent(context, ConvertingActivity.class));
-            ((Activity)context).finish();
-        }
+        binding.rlprevimg.setVisibility(View.VISIBLE);
+        binding.imgseek.setVisibility(View.VISIBLE);
         try {
-            byte[] imageData = Utility.rotateImageData((Activity) context, data, 1);
+            byte[] imageData = Utility.rotateImageData((Activity) context, data, 0);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageData , 0, imageData.length);
+            binding.imgLastimage.setBackground(context.getResources().getDrawable(R.drawable.bgcornorgray));
+            binding.imgLastimage.setImageBitmap(bitmap);
             File userDIR = Utility.createExternalDirectory(FULL_SCREEN);
             File file = new File(userDIR, System.currentTimeMillis() + ".jpeg");
             FileOutputStream outPut = new FileOutputStream(file);
             outPut.write(imageData, 0, imageData.length);
             outPut.close();
-            Toast.makeText(context, file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             mCamera.stopPreview();
             startCameraPreview();
-            binding.cameraPreview.addView(maPreview);
+            binding.imgcount.setText(""+count);
+            binding.imgseek.setProgress(count);
         } catch (Exception e) {
             Log.e(TAG, "saveImage", e);
         }
