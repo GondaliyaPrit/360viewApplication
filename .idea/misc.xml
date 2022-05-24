@@ -3,6 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/bg_active.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/bg_noactive.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/bgcornorgray.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/btnbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/btnbgwhite.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/camera.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/corsorbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/createaccountbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/donebtn_bg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/ic_camera.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/ic_close.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/logincornorbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/roundshapwithborder.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/textbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/drawable/yellowbtnbg.xml" value="0.219" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_api_call.xml" value="0.3645833333333333" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_converting.xml" value="0.33489583333333334" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_create_acoount.xml" value="0.3645833333333333" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_intro_screen.xml" value="0.34010416666666665" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_main.xml" value="0.3489583333333333" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_take_image.xml" value="0.3645833333333333" />
+        <entry key="..\:/Workspace/Projects/Git/CAM360/app/src/main/res/layout/activity_uplodeimage.xml" value="0.33489583333333334" />
         <entry key="..\:/sanket/WorkSpace/Project/KeepShakeDigital/app/src/main/res/drawable/bg_active.xml" value="0.195" />
         <entry key="..\:/sanket/WorkSpace/Project/KeepShakeDigital/app/src/main/res/drawable/bgcornorgray.xml" value="0.195" />
         <entry key="..\:/sanket/WorkSpace/Project/KeepShakeDigital/app/src/main/res/drawable/btnbg.xml" value="0.195" />

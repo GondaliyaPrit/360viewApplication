@@ -39,7 +39,7 @@ public class CameraPreviewViewModel {
     Camera.PictureCallback callback;
 
     public CameraPreviewViewModel(Context context, ActivityTakeImageBinding activityFullScreenPreviewBinding) {
-        this.context = context;
+       this.context = context;
         this.binding = activityFullScreenPreviewBinding;
     }
 
@@ -88,7 +88,6 @@ public class CameraPreviewViewModel {
             mCamera = Camera.open(0);
         return mCamera;
     }
-
     public void captureImage() {
         callback = new Camera.PictureCallback() {
             @Override

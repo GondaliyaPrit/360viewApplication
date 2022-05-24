@@ -204,7 +204,6 @@
                     android:layout_below="@id/or"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@drawable/bgcornorgray">
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -224,7 +223,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:id="@+id/facrbboklayout"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"

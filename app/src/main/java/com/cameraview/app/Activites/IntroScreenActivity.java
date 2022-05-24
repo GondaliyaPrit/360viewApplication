@@ -39,7 +39,6 @@ public class IntroScreenActivity extends AppCompatActivity {
     }
 
     private void initvariable() {
-
         introlist = new ArrayList<>();
         context = IntroScreenActivity.this;
     }
@@ -58,9 +57,7 @@ public class IntroScreenActivity extends AppCompatActivity {
         binding.intropage.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
-
             @Override
             public void onPageSelected(int position) {
                 addDot(position);
@@ -79,10 +76,8 @@ public class IntroScreenActivity extends AppCompatActivity {
                     binding.btnallow.setVisibility(View.GONE);
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
         binding.btnallow.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +92,6 @@ public class IntroScreenActivity extends AppCompatActivity {
         binding.nextbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 binding.intropage.setCurrentItem(getItem(+1));
             }
         });
@@ -132,7 +126,6 @@ public class IntroScreenActivity extends AppCompatActivity {
         }
         //active dot
         dot[page_position].setImageDrawable(getResources().getDrawable(R.drawable.bg_active));
-
     }
 
 }

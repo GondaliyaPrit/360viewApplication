@@ -38,7 +38,8 @@ public class TakeImageActivity extends AppCompatActivity {
     }
 
     private void initvariable() {
-        cameraPreviewViewModel = new CameraPreviewViewModel(this,binding);
+        cameraPreviewViewModel =
+                new CameraPreviewViewModel(this,binding);
         context = this;
     }
 
@@ -55,8 +56,6 @@ public class TakeImageActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
     }
 
 }

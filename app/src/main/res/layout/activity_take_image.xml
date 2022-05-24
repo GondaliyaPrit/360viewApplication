@@ -98,7 +98,7 @@
             android:progressBackgroundTint="@color/white"
             android:progressTint="@color/white"
             android:thumbTint="@color/white"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <RelativeLayout
             android:id="@+id/rldone"
@@ -130,13 +130,8 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_13sdp" />
             </LinearLayout>
-
-
         </RelativeLayout>
-
     </LinearLayout>
-
-
 </RelativeLayout>
 
 
