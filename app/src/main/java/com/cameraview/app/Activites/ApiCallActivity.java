@@ -54,7 +54,6 @@ import retrofit2.Response;
 
 public class ApiCallActivity extends AppCompatActivity {
     String[] perms = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
-
     String[] cat = {"Gallery", "Camera"};
     ActivityApiCallBinding binding;
     AlertDialog.Builder dialog;
@@ -79,7 +78,6 @@ public class ApiCallActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         checkpermission();
         dialog = new AlertDialog.Builder(this);
-
         webSettings = binding.webview.getSettings();
         array = new ArrayList<>();
         array.add("Sanket");
@@ -93,7 +91,6 @@ public class ApiCallActivity extends AppCompatActivity {
                 removebgofimage = new ArrayList<>();
                 imagebase64list = new ArrayList<>();
                 foregrounflist = new ArrayList<>();
-
                 dialog.setTitle("Select Your Photo");
                 dialog.setItems(cat, new DialogInterface.OnClickListener() {
                     @Override
@@ -174,7 +171,6 @@ public class ApiCallActivity extends AppCompatActivity {
     private void Camera() {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, 1);
-
     }
 
     private void callbgremoveapi(int index, List<MultipartBody.Part> removebgofimage) {
@@ -185,7 +181,7 @@ public class ApiCallActivity extends AppCompatActivity {
         }
         RequestBody format = RequestBody.create(MediaType.parse("text/plain"), "jpg");
         Log.e("image", "" + removebgofimage.get(index));
-        Call<ResponseBody> call = ApiClient.API.getimage(removebgofimage.get(index), format);
+        Call<ResponseBody> call = ApiClient.API.getimage("G5jQkXKqSXDBqPW5pgnRiCha",removebgofimage.get(index), format);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -249,7 +245,6 @@ public class ApiCallActivity extends AppCompatActivity {
                         FromGallery(data.getClipData().getItemAt(i).getUri());
                     }
                 }
-
             }
         }
     }
@@ -260,14 +255,12 @@ public class ApiCallActivity extends AppCompatActivity {
                 String fullPath = getPath(uri, this);
                 imagePath = fullPath;
                 fileUri = uri;
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
             Log.e("uri", "uri is null");
         }
-
 
         File imageFilePath = new File(imagePath);
         RequestBody requestFile =

@@ -1,5 +1,6 @@
 package com.cameraview.app.Activites;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,5 +29,15 @@ public class ConvertingActivity extends AppCompatActivity {
     private void initclicklistner() {
     }
 
+    private void Gallary() {
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        i.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        startActivityForResult(Intent.createChooser(i, "Select Picture"), 0);
 
+    }
 }
+
+
+

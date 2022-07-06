@@ -8,6 +8,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -26,13 +27,13 @@ public interface Api {
     @Multipart
     @Headers({
             "Accept: application/json",
-            "X-Api-Key: G5jQkXKqSXDBqPW5pgnRiCha",
             "X-RateLimit-Limit: 500",
             "X-RateLimit-Remaining: 10",
             "Retry-After: 5"
     })
     @POST("removebg")
     Call<ResponseBody> getimage(
+            @Header("X-Api-Key") String apikey,
             @Part MultipartBody.Part image,@Part("format") RequestBody format);
 
 //    @FormUrlEncoded
