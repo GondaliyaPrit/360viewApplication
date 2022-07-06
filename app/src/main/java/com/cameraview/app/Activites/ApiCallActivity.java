@@ -60,7 +60,7 @@ public class ApiCallActivity extends AppCompatActivity {
     AlertDialog.Builder dialog;
     private Bitmap photo;
     String imagePath;
-    private Uri fileUri;
+    Uri fileUri;
     private static final String tag = "Commons";
     List<MultipartBody.Part> listofimage;
     List<MultipartBody.Part> removebgofimage;
